@@ -1,6 +1,13 @@
 angular.module('randomApp.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+  // Filter to reverse the order of posts in Cartel's feed.
+  .filter('reverse', function() {
+    return function(items) {
+      return items.slice().reverse();
+    };
+  })
+
+  .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -45,16 +52,16 @@ angular.module('randomApp.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-})
-
-    .controller('CartelCtrl', function($scope,$http) {
-    // $scope.stories = [];
-    $http.get('https://merch-connect.herokuapp.com/api/posts')
-      .success(function(response) {
-          $scope.posts = response;
-        });
+  .controller('PlaylistCtrl', function($scope, $stateParams) {
   })
+
+  .controller('CartelCtrl', function($scope,$http) {
+  // $scope.stories = [];
+  $http.get('https://merch-connect.herokuapp.com/api/posts')
+    .success(function(response) {
+        $scope.posts = response;
+      });
+})
 
 
 
