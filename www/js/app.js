@@ -19,7 +19,7 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -37,10 +37,11 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
   })
 
   .state('app.browse', {
-      url: '/browse',
+      url: '/dribbble',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/dribbble.html',
+          controller: 'DribbbleCtrl'
         }
       }
     })

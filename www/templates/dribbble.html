@@ -1,0 +1,8 @@
+<ion-view view-title="Dribbble's Feed">
+  <ion-content>
+  	<div ng-repeat="shot in shots">
+    	<h2>{{shot.title}}</h2>
+    	<img ng-src="{{shot.images.normal}}">
+  	</div>
+  </ion-content>
+</ion-view>

@@ -1,14 +1,14 @@
 <ion-view view-title="Cartel's Feed">
   <ion-content>
     <div class="list">
-          <a class="item item-thumbnail-left"
-            href="{{post.artFile}}" target="_blank"
-            ng-repeat="post in posts | reverse">
-            <img ng-src="{{post.artFile}}">
-            <h2 class="post-title">{{post.design}}</h2>
-            <p>
-              <span am-time-ago="story.created_utc" am-preprocess="unix"></span> by: {{post.artist}}</p>
-          </a>
-        </div>
+      <a class="item item-thumbnail-left"
+      href="{{post.artFile}}" target="_blank"
+      ng-repeat="post in posts | reverse">
+      <img ng-src="{{post.artFile}}">
+      <h2 class="post-title">{{post.design}}</h2>
+      <p>
+        <span am-time-ago="story.created_utc" am-preprocess="unix"></span> by: {{post.artist}}</p>
+      </a>
+    </div>
   </ion-content>
 </ion-view>

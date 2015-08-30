@@ -2,8 +2,8 @@ angular.module('randomApp.controllers', [])
 
   // Filter to reverse the order of posts in Cartel's feed.
   .filter('reverse', function() {
-    return function(items) {
-      return items.slice().reverse();
+    return function(shots) {
+      return shots.slice().reverse();
     };
   })
 
@@ -60,6 +60,14 @@ angular.module('randomApp.controllers', [])
   $http.get('https://merch-connect.herokuapp.com/api/posts')
     .success(function(response) {
         $scope.posts = response;
+      });
+})
+
+  .controller('DribbbleCtrl', function($scope,$http) {
+  $http.jsonp("https://api.dribbble.com/v1/shots?access_token=3457716a78f7869e4e28edd9322a4a54358ce7da6076a5dc97e51a0d167bd70e&callback=JSON_CALLBACK")
+    .then(function(response) {
+        $scope.shots = response.data.data;
+        console.log($scope.shots);
       });
 })
 
