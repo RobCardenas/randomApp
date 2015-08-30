@@ -9,6 +9,9 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
+    if (window.cordove && window.cordova.InAppBrowser) {
+      window.open = window.cordova.InAppBrowser.open;
+    }
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
@@ -26,7 +29,7 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
+  .state('app.cARTel', {
     url: '/cARTel',
     views: {
       'menuContent': {
@@ -36,7 +39,7 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
     }
   })
 
-  .state('app.browse', {
+  .state('app.dribbble', {
       url: '/dribbble',
       views: {
         'menuContent': {
@@ -45,12 +48,12 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.weather', {
+      url: '/weather',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/weather.html',
+          controller: 'WeatherCtrl'
         }
       }
     })
@@ -65,5 +68,5 @@ angular.module('randomApp', ['ionic', 'randomApp.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/cARTel');
 });

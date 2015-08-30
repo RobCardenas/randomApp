@@ -61,6 +61,9 @@ angular.module('randomApp.controllers', [])
     .success(function(response) {
         $scope.posts = response;
       });
+    $scope.openLink = function(url) {
+      window.open(url, '_blank');
+    };
 })
 
   .controller('DribbbleCtrl', function($scope,$http) {
@@ -70,6 +73,8 @@ angular.module('randomApp.controllers', [])
         console.log($scope.shots);
       });
 })
+
+  
 
 
 
